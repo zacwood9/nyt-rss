@@ -7,4 +7,4 @@ See `nytlinks.txt` for the original source of all the feeds.
 
 ## Usage
 
-`ruby lib/nyt-rss.rb` starts the server listen on port `:4567`.
+`ruby lib/nyt-rss.rb` starts the server listening on port `:4567`.

@@ -1,0 +1,11 @@
+<h1>NYT RSS Feeds</h1>
+
+Usage: https://nytrss.zacwood.me/section/author
+returns an RSS feed with articles filtered by the given section and author.
+
+<h3>Available sections</h3>
+<ul>
+    <% @sections.each do |s| %>
+	<li><%= s %></li>
+    <% end %>
+</ul>

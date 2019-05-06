@@ -54,7 +54,7 @@ module NYTRSS
     def by_author(name)
       xml = Nokogiri::XML(@xml_str)
       xml.xpath("//item").each do |node|
-        node.unlink unless node.xpath("dc:creator").text.upcase.include? name.upcase
+        node.unlink unless node.xpath("dc:creator").text.upcase.include?(name.upcase)
       end
       xml.to_xml
     end
@@ -71,6 +71,13 @@ module NYTRSS
 
   class App < Sinatra::Base    
     set :server, :puma
+
+    get "/" do
+      @sections = $feeds.map do |key, value|
+        key.to_s
+      end
+      erb :index
+    end
     
     get "/:section", provides: [:xml] do |section|
       sym = section.to_sym
